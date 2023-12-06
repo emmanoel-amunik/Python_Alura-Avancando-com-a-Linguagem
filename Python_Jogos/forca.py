@@ -4,8 +4,11 @@ def play_hangman():
     print("*" * 29)
 
     secret_word = "banana"
+    correct_letters = ["_", "_", "_", "_", "_", "_"]
     hanged = False
     right = False
+
+    print(correct_letters)
 
     while not hanged and not right:
 
@@ -15,10 +18,10 @@ def play_hangman():
         for letter in secret_word:
 
             if user_kick.upper() == letter.upper():
-                print(f'Found the letter "{letter}" in position {index}')
+                correct_letters[index] = letter
             index += 1
 
-        print("Playing...")
+        print("Playing...", correct_letters)
 
     print("*" * 29)
     print("End Game")
