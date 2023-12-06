@@ -9,11 +9,12 @@ def play_hangman():
 
     while not hanged and not right:
 
-        user_kick = input("What letter? ")
+        user_kick = input("What letter? ").strip()
         index = 0
 
         for letter in secret_word:
-            if user_kick == letter:
+
+            if user_kick.upper() == letter.upper():
                 print(f'Found the letter "{letter}" in position {index}')
             index += 1
 
