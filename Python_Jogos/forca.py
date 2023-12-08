@@ -1,9 +1,18 @@
+import random
+
+
 def play_hangman():
     print("*" * 29)
     print("Welcome to the Hangman game!")
     print("*" * 29)
 
-    secret_word = "banana".upper()
+    with open("words.txt") as file:
+        words = []
+        for line in file:
+            words.append(line.strip())
+
+    number = random.randrange(0, len(words))
+    secret_word = words[number].upper()
     correct_letters = ["_" for letter in secret_word]
 
     hanged = False
